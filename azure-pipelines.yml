@@ -17,6 +17,6 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    echo $(g) > $PWD/key.json
+    echo $(g) | base64 -d > $PWD/key.json
     GOOGLE_APPLICATION_CREDENTIALS=$PWD/key.json go run main.go
   displayName: 'Run a multi-line script'
