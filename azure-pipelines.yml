@@ -15,26 +15,12 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-      
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'Azure subscription 1(a0536ce8-4bb3-4e3e-9be7-5f4c06177bc0)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'GOOGLE_APPLICATION_CREDENTIALS=$PWD/azure-credentials.json go run main.go'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'devops-id'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      echo 'Hello worldcoooooooll'
-      GOOGLE_APPLICATION_CREDENTIALS=$PWD/azure-credentials.json go run main.go
-    addSpnToEnvironment: true
 
 - script: |
     echo $(g) | base64 -d > $PWD/key.json
     GOOGLE_APPLICATION_CREDENTIALS=$PWD/key.json go run main.go
+    curl -v -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2021-01-01
+    curl -v -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
     curl -v -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://iam.googleapis.com/projects/751286965207/locations/global/workloadIdentityPools/devops/providers/azure"
-    
+    GOOGLE_APPLICATION_CREDENTIALS=$PWD/azure-credentials.json go run main.go    
   displayName: 'Run a multi-line script'
