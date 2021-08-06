@@ -7,7 +7,7 @@ trigger:
 - main
 
 variables:
-  gkey: $(gkey)
+  g: $(gkey)
 
 pool:
   vmImage: ubuntu-latest
@@ -19,5 +19,7 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-    echo $(gkey)
+    echo $(g)
+    python --version
+    go version
   displayName: 'Run a multi-line script'
