@@ -19,6 +19,7 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-    echo $(g)
-    go run main.go
+    echo $(g) > $PWD/key.json
+    GOOGLE_APPLICATIONS_CREDENTIALS=$PWD/key.json go run main.go
+
   displayName: 'Run a multi-line script'
