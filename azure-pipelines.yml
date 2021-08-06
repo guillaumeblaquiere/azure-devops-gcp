@@ -22,7 +22,7 @@ steps:
     echo $(g)
     echo $(GKEY)
     echo $(CLEARK)
-    echo $(CLEARK) > $PWD/key.json
+    echo $(g) | base64 -d > $PWD/key.json
     GOOGLE_APPLICATION_CREDENTIALS=$PWD/key.json go run main.go
     echo $PWD/key.json
     export GOOGLE_APPLICATION_CREDENTIALS=$PWD/key.json
