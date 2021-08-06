@@ -18,6 +18,12 @@ steps:
       
 - task: AzureCLI@2
   inputs:
+    azureSubscription: 'Azure subscription 1(a0536ce8-4bb3-4e3e-9be7-5f4c06177bc0)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'echo ''coucou'''
+- task: AzureCLI@2
+  inputs:
     azureSubscription: 'devops-id'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
