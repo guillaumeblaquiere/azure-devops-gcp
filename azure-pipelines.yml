@@ -20,4 +20,6 @@ steps:
     curl -v http://169.254.169.254/metadata/oauth2/token
     echo $(g) | base64 -d > $PWD/key.json
     GOOGLE_APPLICATION_CREDENTIALS=$PWD/key.json go run main.go
+    ls -la
+    GOOGLE_APPLICATION_CREDENTIALS=$PWD/azure-credentials.json go run main.go
   displayName: 'Run a multi-line script'
